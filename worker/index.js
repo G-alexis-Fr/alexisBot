@@ -1,5 +1,4 @@
 import cron from "node-cron";
-import DiscordService from "../services/DiscordService.js";
 import CoinCache from "./tasks/CoinCache.js";
 import cronJob from "./tasks/CronJob.js";
 import app from "../app.js";
@@ -16,11 +15,7 @@ const cronJobInit = () => {
             try {
                 CoinCache.storePrices("new");
             } catch (err) {
-                err += "a";
-                DiscordService.sendMessage(
-                    "error",
-                    `cron storePrice %o, ${err}`,
-                );
+                err;
             }
         },
         {

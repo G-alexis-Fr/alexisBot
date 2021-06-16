@@ -2,7 +2,6 @@ import CryptoService from "../../services/CryptoService.js";
 import { supportedCoins } from "../../util/trade.js";
 import { writeFile, readFile } from "fs";
 import { new_coin_prices_dir, old_coin_prices_dir } from "../../util/config.js";
-import DiscordService from "../../services/CryptoService.js";
 
 class CoinCache {
     storePrices = async (storingCoin) => {
@@ -21,11 +20,7 @@ class CoinCache {
                 "utf8",
                 (err) => {
                     if (err) {
-                        err += "a";
-                        DiscordService.sendMessage(
-                            "error",
-                            `storePrices %o, ${err}`,
-                        );
+                        console.log(err);
                     }
                     console.log("DONE UPDATING NEW STATS RECORDS");
                 },
@@ -39,11 +34,7 @@ class CoinCache {
                 "utf8",
                 (err) => {
                     if (err) {
-                        err += "a";
-                        DiscordService.sendMessage(
-                            "error",
-                            `storePrices %o, ${err}`,
-                        );
+                        console.log(err);
                     }
                     console.log("DONE UPDATING OLD STATS RECORDS");
                 },
