@@ -5,9 +5,12 @@ class CryptoService {
     baseUrl = `https://api.coingecko.com/api/v3/`;
 
     getCoinPrice = async (coin_id, whichCoin) => {
-        let coin_prices = JSON.parse(readFileSync(whichCoin));
-
-        return coin_prices[coin_id].usd;
+        try {
+            let coin_prices = await JSON.parse(readFileSync(whichCoin));
+            return coin_prices[coin_id].usd;
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     getCoinPriceOnline = async (coin_id) => {
@@ -17,7 +20,6 @@ class CryptoService {
             );
         } catch (error) {
             error;
-            
         }
     };
 }

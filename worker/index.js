@@ -5,24 +5,24 @@ import app from "../app.js";
 
 const cronJobInit = () => {
     // Replace with */15 * * * *
-    let showTime = cron.schedule("*/55 * * * * *", async () => {
+    let showTime = cron.schedule("*/60 * * * * *", async () => {
         app();
     });
 
-    let coinCacheCron = cron.schedule(
-        "*/60 * * * * *",
-        () => {
-            try {
-                CoinCache.storePrices("new");
-            } catch (err) {
-                err;
-            }
-        },
-        {
-            scheduled: true,
-            timezone: "Asia/Seoul",
-        },
-    );
+    // let coinCacheCron = cron.schedule(
+    //     "*/60 * * * * *",
+    //     () => {
+    //         try {
+    //             CoinCache.storePrices("new");
+    //         } catch (err) {
+    //             err;
+    //         }
+    //     },
+    //     {
+    //         scheduled: true,
+    //         timezone: "Asia/Seoul",
+    //     },
+    // );
 };
 setTimeout(() => {
     cronJobInit();
