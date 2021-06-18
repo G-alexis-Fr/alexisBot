@@ -7,6 +7,7 @@ class CryptoService {
     getCoinPrice = async (coin_id, whichCoin) => {
         try {
             let coin_prices = await JSON.parse(readFileSync(whichCoin));
+            console.log(coin_prices[coin_id].usd);
             return coin_prices[coin_id].usd;
         } catch (error) {
             console.log(error);

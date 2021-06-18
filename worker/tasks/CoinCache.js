@@ -16,7 +16,7 @@ class CoinCache {
             if (storingCoin === "new") {
                 console.log("starting to store new coin prices");
                 // store them in json file
-                writeFile(
+                await writeFile(
                     new_coin_prices_dir,
                     `${JSON.stringify(coinPrices.data)}`,
                     "utf8",
@@ -30,7 +30,7 @@ class CoinCache {
             } else {
                 console.log("starting to store old coin prices");
                 // store them in json file
-                writeFile(
+                await writeFile(
                     old_coin_prices_dir,
                     `${JSON.stringify(coinPrices.data)}`,
                     "utf8",

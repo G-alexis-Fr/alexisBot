@@ -17,6 +17,7 @@ const sellCoin = async (coin_id, quantity) => {
         if (response.status === 200) {
             try {
                 let message = `You sold ${quantity} ${coin_id} for a total of : $${response.data.total_price}`;
+                console.log(message);
             } catch (error) {
                 error;
             }

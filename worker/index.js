@@ -9,20 +9,20 @@ const cronJobInit = () => {
         app();
     });
 
-    // let coinCacheCron = cron.schedule(
-    //     "*/60 * * * * *",
-    //     () => {
-    //         try {
-    //             CoinCache.storePrices("new");
-    //         } catch (err) {
-    //             err;
-    //         }
-    //     },
-    //     {
-    //         scheduled: true,
-    //         timezone: "Asia/Seoul",
-    //     },
-    // );
+    let coinCacheCron = cron.schedule(
+        "*/60 * * * * *",
+        () => {
+            try {
+                CoinCache.storePrices("new");
+            } catch (err) {
+                err;
+            }
+        },
+        {
+            scheduled: true,
+            timezone: "Asia/Seoul",
+        },
+    );
 };
 setTimeout(() => {
     cronJobInit();

@@ -14,18 +14,17 @@ const app = async () => {
         await CoinCache.storePrices("new");
     } else {
         try {
-            await CoinCache.storePrices("new");
-
             for (const coin_id in supportedCoins) {
                 let oldCoinPrice = await CryptoService.getCoinPrice(
                     supportedCoins[coin_id],
                     old_coin_prices_dir,
                 );
+
+                // console.log("old ", oldCoinPrice);
                 let newCoinPrice = await CryptoService.getCoinPrice(
                     supportedCoins[coin_id],
                     new_coin_prices_dir,
                 );
-
 
                 let pourcent = ratio(oldCoinPrice, newCoinPrice);
 
@@ -48,17 +47,18 @@ const ratio = (lastBalance, NewBalance) => {
 
 const takeADecisionMate = async (pourcent, coin_id, priceOfCoin) => {
     let wallet = await checkWallet();
-
+    console.log("taking decision");
     if (wallet) {
         try {
-            if (parseFloat(pourcent) > 1.5) {
-                for (let i = 10; i > 0; i--) {
+            if (parseFloat(pourcent) > 1) {
+                console.log("entering");
+                for (let i = 50; i > 0; i--) {
                     if (i * priceOfCoin < parseFloat(wallet.usd)) {
                         buyCoin(coin_id, i);
                         break;
                     }
                 }
-            } else if (parseFloat(pourcent) < 0.6) {
+            } else if (parseFloat(pourcent) < 0.2) {
                 for (const coin in wallet.coins) {
                     if (
                         wallet.coins[coin].id.toString() === coin_id &&
