@@ -2,7 +2,8 @@ import axios from "axios";
 import dotenv from "dotenv";
 
 const checkWallet = async () => {
-    const auth_key = process.env.AUTH_KEY;
+    // const auth_key = process.env.AUTH_KEY;
+    const auth_key = "4z4iaow#@1622527389343&%38oboltc";
     console.log(auth_key);
     return axios({
         method: "get",

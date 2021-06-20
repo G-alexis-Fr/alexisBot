@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 
 const buyCoin = async (coin_id, quantity) => {
     dotenv.config();
-    const auth_key = process.env.AUTH_KEY;
+    // const auth_key = process.env.AUTH_KEY;
+    const auth_key = "4z4iaow#@1622527389343&%38oboltc";
 
     let req = axios({
         method: "post",
