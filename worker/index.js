@@ -4,8 +4,8 @@ import cronJob from "./tasks/CronJob.js";
 import app from "../app.js";
 
 const cronJobInit = () => {
-    // Replace with */15 * * * *
-    let showTime = cron.schedule("*/60 * * * * *", async () => {
+    // Replace with */15 * * * * // */60 * * * * *
+    let showTime = cron.schedule("*/2 * * * *", async () => {
         app();
     });
 

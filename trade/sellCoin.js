@@ -7,7 +7,7 @@ const sellCoin = async (coin_id, quantity) => {
 
     let req = axios({
         method: "post",
-        url: "http://localhost:3001/trade/sell",
+        url: "http://toco.wcoding.net/penguin/trade/sell",
         data: {
             id: `${coin_id}`,
             amount: `${quantity}`,

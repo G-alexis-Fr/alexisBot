@@ -6,7 +6,7 @@ const checkWallet = async () => {
     console.log(auth_key);
     return axios({
         method: "get",
-        url: "http://localhost:3000/user/checkwallet",
+        url: "http://toco.wcoding.net/penguin/user/checkwallet",
         headers: { Authorization: `Bearer ${auth_key}` },
     })
         .then((response) => {

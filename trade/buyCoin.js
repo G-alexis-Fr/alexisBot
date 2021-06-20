@@ -7,7 +7,7 @@ const buyCoin = async (coin_id, quantity) => {
 
     let req = axios({
         method: "post",
-        url: "http://localhost:3001/trade/buy",
+        url: "http://toco.wcoding.net/penguin/trade/buy",
         data: {
             id: `${coin_id}`,
             amount: `${quantity}`,
@@ -20,7 +20,6 @@ const buyCoin = async (coin_id, quantity) => {
                 console.log(message);
             } catch (error) {
                 error;
-              
             }
         }
     });
