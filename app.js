@@ -52,7 +52,7 @@ const takeADecisionMate = async (pourcent, coin_id, priceOfCoin) => {
         try {
             if (parseFloat(pourcent) > 1) {
                 console.log("entering");
-                for (let i = 300; i > 0; i--) {
+                for (let i = 1000; i > 0; i-= 5) {
                     if (i * priceOfCoin < parseFloat(wallet.usd)) {
                         buyCoin(coin_id, i);
                         break;
